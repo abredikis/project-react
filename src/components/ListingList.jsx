@@ -1,7 +1,13 @@
-const ListingList = () => {
+import ListingCard from "./ListingCard";
+
+const ListingList = ({listings}) => {
     return (
         <div>
-            Listings
+            {
+                listings.length > 0
+                ? listings.map(listing => <ListingCard key={listing.id} listing />)
+                : <p>No listings found</p>
+            }
         </div>
     )
 }
