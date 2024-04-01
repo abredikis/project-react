@@ -3,14 +3,12 @@ import { DollarSign, Pin, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/Card';
 import { getImageUrl } from '@/lib/utils/images';
 
+import ListingCardImages from './ListingCardImages';
+
 const ListingCard = ({ listing }) => {
   return (
     <Card className='w-[320px]'>
-      <img
-        className='h-[200px] w-full rounded-md object-cover'
-        src={getImageUrl(listing.images?.[0])}
-        alt={listing.name}
-      />
+      <ListingCardImages listing={listing} />
       <CardContent className='p-4'>
         <h2 className='mb-2 text-xl font-semibold'>{listing.name}</h2>
         <div className='flex items-center gap-2'>
