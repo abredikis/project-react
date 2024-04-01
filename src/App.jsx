@@ -2,8 +2,6 @@ import { Outlet } from 'react-router-dom';
 
 import Devbar from '@/components/Devbar/Devbar';
 
-import HomePage from './pages/HomePage';
-
 const App = () => {
   return (
     <>
