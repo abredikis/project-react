@@ -29,8 +29,12 @@ const ListingCardImages = ({ listing }) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselNext />
-      <CarouselPrevious />
+      {isHovering && (
+        <>
+          <CarouselPrevious className='absolute left-4' />
+          <CarouselNext className='absolute right-4' />
+        </>
+      )}
     </Carousel>
   );
 };
