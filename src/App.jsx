@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 import Devbar from '@/components/Devbar/Devbar';
 
 import HomePage from './pages/HomePage';
@@ -9,7 +11,7 @@ const App = () => {
         <Devbar />
       </div>
       <div className='ml-[700px]'>
-        <HomePage />
+        <Outlet />
       </div>
     </>
   );
