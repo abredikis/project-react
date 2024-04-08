@@ -2,9 +2,11 @@ import ListingCard from './ListingCard';
 
 const ListingList = ({ listings }) => {
   return (
-    <div>
+    <div className='flex flex-wrap justify-center gap-3'>
       {listings.length > 0 ? (
-        listings.map((listing) => <ListingCard key={listing.id} listing={listing} />)
+        listings.map((listing) => (
+          <ListingCard key={listing.id} listing={listing} />
+        ))
       ) : (
         <p>No listings found</p>
       )}
