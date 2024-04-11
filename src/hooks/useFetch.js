@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import api from '@/api';
 
-const useFetch = ({ url, options }) => {
-  const [data, setData] = useState([]);
+const useFetch = (url, options) => {
+  const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const abortControllerRef = useRef(null);
@@ -21,8 +21,8 @@ const useFetch = ({ url, options }) => {
           signal: abortControllerRef.current?.signal,
         });
         setData(response.data);
-        setIsLoading(false);
       } catch (error) {
+        console.log(error);
         if (axios.isCancel(error)) {
           return;
         }
