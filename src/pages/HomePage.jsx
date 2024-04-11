@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import ListingFilters from '@/components/ListingFilters';
 import ListingList from '@/components/ListingList';
