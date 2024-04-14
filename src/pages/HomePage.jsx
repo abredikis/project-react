@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 
+import DataRenderer from '@/components/DataRendered';
 import ListingFilters from '@/components/ListingFilters';
 import ListingList from '@/components/ListingList';
 import { Separator, Spinner } from '@/components/ui';
@@ -45,8 +46,10 @@ const HomePage = () => {
       <div className='mb-8'>
         <ListingFilters onChange={handleFilters} />
         <Separator className='my-4' />
+        <DataRenderer error={error} isLoading={isLoading}>
+          <ListingList listings={listings} />
+        </DataRenderer>
       </div>
-      {renderListingList()}
     </div>
   );
 };
