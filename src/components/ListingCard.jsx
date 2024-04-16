@@ -8,7 +8,7 @@ import ListingCardImages from './ListingCardImages';
 
 const ListingCard = ({ listing }) => {
   return (
-    <Link to={`listings/${listing.id}}`}>
+    <Link to={`listings/${listing.id}`}>
       <Card className='w-[320px]'>
         <ListingCardImages listing={listing} />
         <CardContent className='p-4'>
