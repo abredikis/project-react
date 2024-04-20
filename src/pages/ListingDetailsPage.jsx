@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 
 import DataRenderer from '@/components/DataRendered';
 import ListingDetailsCard from '@/components/ListingDetailsCard';
-import { Spinner } from '@/components/ui';
 import useFetch from '@/hooks/useFetch';
 
 const ListingDetailsPage = () => {
