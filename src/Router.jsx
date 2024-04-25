@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ListingDetailsPage from './pages/ListingDetailsPage';
 import ListingFavoritesPage from './pages/ListingFavoritesPage';
 import NotFoundPage from './pages/NotFoundPage';
+import SignInPage from './pages/SignInPage';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/favorites',
         element: <ListingFavoritesPage />,
+      },
+      {
+        path: '/signin',
+        element: <SignInPage />,
       },
     ],
   },
