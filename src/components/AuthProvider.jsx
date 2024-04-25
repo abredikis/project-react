@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchMe = async () => {
       try {
-        const response = await api.get('api/me');
+        const response = await api.get('/api/me');
         setToken(response.data.accessToken);
       } catch {
         setToken(null);
