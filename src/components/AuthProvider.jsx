@@ -15,7 +15,7 @@ export const useAuth = () => {
 };
 
 const AuthProvider = ({ children }) => {
-  const { token, setToken } = useState();
+  const [token, setToken] = useState();
 
   useEffect(() => {
     const fetchMe = async () => {
@@ -26,7 +26,8 @@ const AuthProvider = ({ children }) => {
         setToken(null);
       }
     };
-    api.get('api/me');
+
+    fetchMe();
   }, []);
 
   return (
