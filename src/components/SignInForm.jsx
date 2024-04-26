@@ -2,6 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import api from '@/api';
+import { useAuth } from '@/components/AuthProvider';
 import {
   Button,
   Card,
@@ -17,12 +19,27 @@ const signInFormSchema = z.object({
 });
 
 const SignInForm = () => {
+  const { setToken } = useAuth();
+
   const {
-    formState: { errors },
+    formState: { errors, isSubmitting },
+    handleSubmit,
     register,
+    setError,
   } = useForm({
     resolver: zodResolver(signInFormSchema),
   });
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await api.post('/api/signin', data);
+      setToken(response.data.accessToken);
+    } catch (e) {
+      setError('root', {
+        message: e.response.data.message,
+      });
+    }
+  };
 
   return (
     <Card className='mx-auto w-[500px]'>
@@ -55,7 +72,15 @@ const SignInForm = () => {
               </div>
             )}
           </div>
-          <Button>Sign In</Button>
+          <Button disabled={isSubmitting} onClick={handleSubmit(onSubmit)}>
+            {isSubmitting ? 'Loading...' : 'Sign In'}
+          </Button>
+
+          {errors.root && (
+            <div className='text-center text-sm text-red-500'>
+              {errors.root.message}
+            </div>
+          )}
         </form>
       </CardContent>
     </Card>
