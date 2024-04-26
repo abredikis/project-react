@@ -27,6 +27,10 @@ const SignInForm = () => {
     register,
     setError,
   } = useForm({
+    defaultValues: {
+      email: 'demo@demo.io',
+      password: 'password',
+    },
     resolver: zodResolver(signInFormSchema),
   });
 
