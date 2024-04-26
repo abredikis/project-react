@@ -39,3 +39,4 @@ yarn-error.log*
 # Webpack
 webpack-debug.log
 yarn-error.log*
+.vercel
